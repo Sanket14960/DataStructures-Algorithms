@@ -7,7 +7,7 @@ class linkedListNode:
 		
 class linkedList:
 	def __init__(self, head=None, tail=None, count=0):
-		self.head = linkedListNode(head)
+		self.head = None
 		self.tail = self.head
 		self.count = 1
 
@@ -110,15 +110,9 @@ class linkedList:
 #O(n)
 	def reverseList(self):
 		currentNode = self.tail
+		self.head, self.tail = currentNode, self.head
 		while currentNode != None:
-			nxtNode = currentNode.nextNode
-			prvNode = currentNode.previousNode
-			currentNode.nextNode = prvNode
-			currentNode.previousNode = nxtNode
-			if currentNode == self.tail:
-				self.head = currentNode
-			elif currentNode == self.head:
-				self.tail = currentNode
-			currentNode = prvNode
+			currentNode.nextNode , currentNode.previousNode = currentNode.previousNode, currentNode.nextNode
+			currentNode = currentNode.nextNode
 		
 emptyList = linkedList()

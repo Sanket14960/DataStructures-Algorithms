@@ -17,3 +17,16 @@ def bubbleSort(array):
 				pass
 	
 	return array
+
+#Selection Sort Implementation
+def selectionSort(array):
+
+	for i in range(len(array)):
+		currentMinIndex = i
+		for k in range(i, len(array)):
+			if array[k] < array[currentMinIndex]:
+				currentMinIndex = k
+
+		array[i], array[currentMinIndex] = array[currentMinIndex], array[i]
+
+	return array

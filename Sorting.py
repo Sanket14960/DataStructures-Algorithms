@@ -30,3 +30,18 @@ def selectionSort(array):
 		array[i], array[currentMinIndex] = array[currentMinIndex], array[i]
 
 	return array
+
+#Insertion Sort Implementation 
+def insertionSort(array):
+	for i in range(len(array)):
+		currentValue = i
+		
+		for k in range(0,i):
+			if array[k] == array[currentValue]:
+				pass
+			elif array[k] < array[currentValue]:
+				pass
+			else:
+				array[currentValue], array[k] = array[k], array[currentValue]
+				
+	return array

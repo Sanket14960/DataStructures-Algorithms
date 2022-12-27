@@ -49,11 +49,28 @@ class BinarySearchTree:
 			else:
 				currentNode = currentNode.right
 		
-	def delete(self, value): 
+# 	def delete(self, value): 
 
-		findNode = lookup(value)
+# 		findNode = lookup(value)
 
-		if findNode.left == True and findNode.right == True:
-			if findNode.left.value > findNode.right.value:
+# 		if findNode.left == True and findNode.right == True:
+# 			if findNode.left.value > findNode.right.value:
+
+	def breadthFirstSearch(self):
+		currentNode = self.root
+		list = []
+		queue = []
+
+		queue.append(currentNode)
+
+		while len(queue) > 0:
+			currentNode = queue.pop(0)
+			list.append(currentNode.value)
+			if currentNode.left:
+				queue.append(currentNode.left)
+			if currentNode.right:
+				queue.append(currentNode.right)
+		
+		return list
 			
 emptyTree = BinarySearchTree()

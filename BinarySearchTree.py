@@ -72,5 +72,42 @@ class BinarySearchTree:
 				queue.append(currentNode.right)
 		
 		return list
+
+	def depthFirstSearchInOrder(self):
+		return traverseInOrder(self.root, [])
+	
+	def depthFirstSearchPreOrder(self):
+		return traversePreOrder(self.root, [])
+	
+	def depthFirstSearchPostOrder(self):
+		return traversePostOrder(self.root, [])
+
+# Recursive functions for DFS
+def traverseInOrder(node, list):
+	if node.left:
+		 traverseInOrder(node.left, list)
+	list.append(node.value)
+	if node.right:
+		 traverseInOrder(node.right, list)
+	
+	return list
+
+def traversePreOrder(node, list):
+	list.append(node.value)
+	if node.left:
+		 traversePreOrder(node.left, list)
+	if node.right:
+		 traversePreOrder(node.right, list)
+	
+	return list
+
+def traversePostOrder(node, list):
+	if node.left:
+		 traversePostOrder(node.left, list)
+	if node.right:
+		 traversePostOrder(node.right, list)
+	list.append(node.value)
+	
+	return list
 			
 emptyTree = BinarySearchTree()
